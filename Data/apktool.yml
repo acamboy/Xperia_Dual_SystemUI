@@ -1,0 +1,14 @@
+version: 1.5.2
+apkFileName: 04AC79.apk
+isFrameworkApk: false
+usesFramework:
+  ids:
+  - 1
+  tag: c2005_FW1.5
+sdkInfo:
+  minSdkVersion: '18'
+  targetSdkVersion: '18'
+packageInfo:
+  cur_package: com.android.systemui
+  orig_package: com.android.systemui
+compressionType: true
