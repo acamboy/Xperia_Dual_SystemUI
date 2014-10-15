@@ -270,4 +270,5 @@ Data charges may apply when updating your device. An unlimited data plan is reco
     <string name="toast_message_maximum_number_of_tools_reached">Maximum number of quick settings have been selected</string>
     <string name="toast_message_not_allow_turn_on_hotspot">Wi-Fi hotspot not available in airplane mode</string>
     <string name="usb_connected_txt">USB connected</string>
+    <string name="recent_apps_title">Recent apps</string>
 </resources>

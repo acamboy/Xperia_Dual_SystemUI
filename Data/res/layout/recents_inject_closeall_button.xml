@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sonymobile.systemui.recent.RemotePluginView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/task_killer_button_layout_padding_top" android:layout_marginEnd="@dimen/task_killer_button_layout_padding_end" systemui:lookupKey="com.sonymobile.taskswitcher.CLOSEALL_BUTTON"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:systemui="http://schemas.android.com/apk/res/com.android.systemui" />

@@ -8,7 +8,12 @@
     <Setting Name="isdebugtarget" Value="False" />
   </Settings>
   <OpenDocuments />
-  <MarkedLines />
+  <MarkedLines>
+    <MarkedLine Path="smali\com\android\systemui\recent\RecentsPanelView.smali" LineNumber="1216" />
+    <MarkedLine Path="N:\Project\C2005_FW1.5\Xperia_Dual_SystemUI\Misc\JavaSrc\com\android\systemui\recent\RecentsPanelView.java" LineNumber="260" />
+    <MarkedLine Path="smali\com\android\systemui\recent\RecentsPanelView.smali" LineNumber="1163" />
+    <MarkedLine Path="N:\Project\C2005_FW1.5\Xperia_Dual_SystemUI\Misc\JavaSrc\com\android\systemui\recent\RecentsPanelView.java" LineNumber="246" />
+  </MarkedLines>
   <ScriptConfigurations>
     <ScriptConfiguration ConfigurationName="c2005" Description="15.5.A.1.5" Type="Apk" ID="C45557AD-5352-4C28-BCCC-5708CEF82FBB" SortOrder="21">
       <Import SyncWith="Build, GenerateJava">

@@ -864,143 +864,353 @@
 .end method
 
 .method private updateThumbnail(Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;Landroid/graphics/Bitmap;ZZ)V
-    .locals 5
+    .locals 30
     .parameter "h"
     .parameter "thumbnail"
     .parameter "show"
     .parameter "anim"
 
     .prologue
-    .line 517
+    .line 865
     if-eqz p2, :cond_4
 
-    .line 521
-    iget-object v2, p1, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;->thumbnailViewImage:Landroid/widget/ImageView;
+    .line 869
+    const/16 v26, 0x4
 
-    invoke-virtual {v2, p2}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+    invoke-virtual/range {p2 .. p2}, Landroid/graphics/Bitmap;->getWidth()I
 
-    .line 525
-    iget-object v2, p1, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;->thumbnailViewImageBitmap:Landroid/graphics/Bitmap;
+    .line 873
+    move-result v6
 
-    if-eqz v2, :cond_0
+    invoke-virtual/range {p2 .. p2}, Landroid/graphics/Bitmap;->getHeight()I
 
-    iget-object v2, p1, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;->thumbnailViewImageBitmap:Landroid/graphics/Bitmap;
+    move-result v24
 
-    invoke-virtual {v2}, Landroid/graphics/Bitmap;->getWidth()I
+    new-instance v8, Landroid/graphics/Matrix;
 
-    move-result v2
+    invoke-direct {v8}, Landroid/graphics/Matrix;-><init>()V
 
-    invoke-virtual {p2}, Landroid/graphics/Bitmap;->getWidth()I
+    const/high16 v3, 0x3f80
+
+    const/high16 v4, -0x4080
+
+    invoke-virtual {v8, v3, v4}, Landroid/graphics/Matrix;->preScale(FF)Z
+
+    const/4 v4, 0x0
+
+    mul-int/lit8 v3, v24, 0x2
+
+    div-int/lit8 v5, v3, 0x3
+
+    div-int/lit8 v7, v24, 0x3
+
+    const/4 v9, 0x0
+
+    move-object/from16 v3, p2
+
+    invoke-static/range {v3 .. v9}, Landroid/graphics/Bitmap;->createBitmap(Landroid/graphics/Bitmap;IIIILandroid/graphics/Matrix;Z)Landroid/graphics/Bitmap;
+
+    move-result-object v27
+
+    div-int/lit8 v3, v24, 0x3
+
+    add-int v3, v3, v24
+
+    sget-object v4, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+
+    invoke-static {v6, v3, v4}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+
+    move-result-object v23
+
+    new-instance v9, Landroid/graphics/Canvas;
+
+    move-object/from16 v0, v23
+
+    invoke-direct {v9, v0}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v9, v0, v3, v4, v5}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+
+    new-instance v14, Landroid/graphics/Paint;
+
+    invoke-direct {v14}, Landroid/graphics/Paint;-><init>()V
+
+    const/4 v10, 0x0
+
+    move/from16 v0, v24
+
+    int-to-float v11, v0
+
+    int-to-float v12, v6
+
+    add-int/lit8 v3, v24, 0x4
+
+    int-to-float v13, v3
+
+    invoke-virtual/range {v9 .. v14}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
+
+    const/4 v3, 0x0
+
+    add-int/lit8 v4, v24, 0x4
+
+    int-to-float v4, v4
+
+    const/4 v5, 0x0
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v9, v0, v3, v4, v5}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+
+    new-instance v25, Landroid/graphics/Paint;
+
+    invoke-direct/range {v25 .. v25}, Landroid/graphics/Paint;-><init>()V
+
+    new-instance v15, Landroid/graphics/LinearGradient;
+
+    const/16 v16, 0x0
+
+    invoke-virtual/range {p2 .. p2}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v3
 
-    if-ne v2, v3, :cond_0
+    int-to-float v0, v3
 
-    iget-object v2, p1, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;->thumbnailViewImageBitmap:Landroid/graphics/Bitmap;
+    move/from16 v17, v0
 
-    invoke-virtual {v2}, Landroid/graphics/Bitmap;->getHeight()I
+    const/16 v18, 0x0
 
-    move-result v2
-
-    invoke-virtual {p2}, Landroid/graphics/Bitmap;->getHeight()I
+    invoke-virtual/range {v23 .. v23}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v3
 
-    if-eq v2, v3, :cond_1
+    add-int/lit8 v3, v3, 0x4
 
-    .line 528
+    int-to-float v0, v3
+
+    move/from16 v19, v0
+
+    const v20, 0x70ffffff
+
+    const v21, 0xffffff
+
+    sget-object v22, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
+
+    invoke-direct/range {v15 .. v22}, Landroid/graphics/LinearGradient;-><init>(FFFFIILandroid/graphics/Shader$TileMode;)V
+
+    move-object/from16 v0, v25
+
+    invoke-virtual {v0, v15}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
+
+    new-instance v3, Landroid/graphics/PorterDuffXfermode;
+
+    sget-object v4, Landroid/graphics/PorterDuff$Mode;->DST_IN:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-direct {v3, v4}, Landroid/graphics/PorterDuffXfermode;-><init>(Landroid/graphics/PorterDuff$Mode;)V
+
+    move-object/from16 v0, v25
+
+    invoke-virtual {v0, v3}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
+
+    const/16 v17, 0x0
+
+    move/from16 v0, v24
+
+    int-to-float v0, v0
+
+    move/from16 v18, v0
+
+    int-to-float v0, v6
+
+    move/from16 v19, v0
+
+    invoke-virtual/range {v23 .. v23}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v3
+
+    add-int/lit8 v3, v3, 0x4
+
+    int-to-float v0, v3
+
+    move/from16 v20, v0
+
+    move-object/from16 v16, v9
+
+    move-object/from16 v21, v25
+
+    invoke-virtual/range {v16 .. v21}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
+
+    move-object/from16 v0, p1
+
+    iget-object v3, v0, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;->thumbnailViewImage:Landroid/widget/ImageView;
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v3, v0}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+
+    move-object/from16 v0, p1
+
+    iget-object v3, v0, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;->thumbnailViewImageBitmap:Landroid/graphics/Bitmap;
+
+    if-eqz v3, :cond_0
+
+    move-object/from16 v0, p1
+
+    iget-object v3, v0, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;->thumbnailViewImageBitmap:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v3}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v3
+
+    invoke-virtual/range {p2 .. p2}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v4
+
+    if-ne v3, v4, :cond_0
+
+    move-object/from16 v0, p1
+
+    iget-object v3, v0, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;->thumbnailViewImageBitmap:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v3}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v3
+
+    invoke-virtual/range {p2 .. p2}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v4
+
+    if-eq v3, v4, :cond_1
+
+    .line 876
     :cond_0
-    iget-boolean v2, p0, Lcom/android/systemui/recent/RecentsPanelView;->mFitThumbnailToXY:Z
+    move-object/from16 v0, p0
 
-    if-eqz v2, :cond_5
+    iget-boolean v3, v0, Lcom/android/systemui/recent/RecentsPanelView;->mFitThumbnailToXY:Z
 
-    .line 529
-    iget-object v2, p1, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;->thumbnailViewImage:Landroid/widget/ImageView;
+    if-eqz v3, :cond_5
 
-    sget-object v3, Landroid/widget/ImageView$ScaleType;->FIT_XY:Landroid/widget/ImageView$ScaleType;
+    .line 877
+    move-object/from16 v0, p1
 
-    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
+    iget-object v3, v0, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;->thumbnailViewImage:Landroid/widget/ImageView;
 
-    .line 538
+    const/high16 v4, 0x41c8
+
+    invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setRotationY(F)V
+
+    .line 886
     :cond_1
     :goto_0
     if-eqz p3, :cond_3
 
-    iget-object v2, p1, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;->thumbnailView:Landroid/view/View;
+    move-object/from16 v0, p1
 
-    invoke-virtual {v2}, Landroid/view/View;->getVisibility()I
+    iget-object v3, v0, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;->thumbnailView:Landroid/view/View;
 
-    move-result v2
-
-    if-eqz v2, :cond_3
-
-    .line 539
-    if-eqz p4, :cond_2
-
-    .line 540
-    iget-object v2, p1, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;->thumbnailView:Landroid/view/View;
-
-    iget-object v3, p0, Lcom/android/systemui/recent/RecentsPanelView;->mContext:Landroid/content/Context;
-
-    const v4, 0x7f05000b
-
-    invoke-static {v3, v4}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Landroid/view/View;->setAnimation(Landroid/view/animation/Animation;)V
-
-    .line 543
-    :cond_2
-    iget-object v2, p1, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;->thumbnailView:Landroid/view/View;
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v2, v3}, Landroid/view/View;->setVisibility(I)V
-
-    .line 545
-    :cond_3
-    iput-object p2, p1, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;->thumbnailViewImageBitmap:Landroid/graphics/Bitmap;
-
-    .line 547
-    :cond_4
-    return-void
-
-    .line 531
-    :cond_5
-    new-instance v1, Landroid/graphics/Matrix;
-
-    invoke-direct {v1}, Landroid/graphics/Matrix;-><init>()V
-
-    .line 532
-    .local v1, scaleMatrix:Landroid/graphics/Matrix;
-    iget v2, p0, Lcom/android/systemui/recent/RecentsPanelView;->mThumbnailWidth:I
-
-    int-to-float v2, v2
-
-    invoke-virtual {p2}, Landroid/graphics/Bitmap;->getWidth()I
+    invoke-virtual {v3}, Landroid/view/View;->getVisibility()I
 
     move-result v3
 
+    if-eqz v3, :cond_3
+
+    .line 887
+    if-eqz p4, :cond_2
+
+    .line 888
+    move-object/from16 v0, p1
+
+    iget-object v3, v0, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;->thumbnailView:Landroid/view/View;
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/systemui/recent/RecentsPanelView;->mContext:Landroid/content/Context;
+
+    const v5, 0x7f05000b
+
+    invoke-static {v4, v5}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Landroid/view/View;->setAnimation(Landroid/view/animation/Animation;)V
+
+    .line 891
+    :cond_2
+    move-object/from16 v0, p1
+
+    iget-object v3, v0, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;->thumbnailView:Landroid/view/View;
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v3, v4}, Landroid/view/View;->setVisibility(I)V
+
+    .line 893
+    :cond_3
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, p1
+
+    iput-object v0, v1, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;->thumbnailViewImageBitmap:Landroid/graphics/Bitmap;
+
+    .line 895
+    :cond_4
+    return-void
+
+    .line 879
+    :cond_5
+    new-instance v29, Landroid/graphics/Matrix;
+
+    invoke-direct/range {v29 .. v29}, Landroid/graphics/Matrix;-><init>()V
+
+    .line 880
+    .local v1, scaleMatrix:Landroid/graphics/Matrix;
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/android/systemui/recent/RecentsPanelView;->mThumbnailWidth:I
+
     int-to-float v3, v3
 
-    div-float v0, v2, v3
+    invoke-virtual/range {p2 .. p2}, Landroid/graphics/Bitmap;->getWidth()I
 
-    .line 533
+    move-result v4
+
+    int-to-float v4, v4
+
+    .line 881
     .local v0, scale:F
-    invoke-virtual {v1, v0, v0}, Landroid/graphics/Matrix;->setScale(FF)V
+    div-float v28, v3, v4
 
-    .line 534
-    iget-object v2, p1, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;->thumbnailViewImage:Landroid/widget/ImageView;
+    .line 882
+    move-object/from16 v0, v29
 
-    sget-object v3, Landroid/widget/ImageView$ScaleType;->MATRIX:Landroid/widget/ImageView$ScaleType;
+    move/from16 v1, v28
 
-    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
+    move/from16 v2, v28
 
-    .line 535
-    iget-object v2, p1, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;->thumbnailViewImage:Landroid/widget/ImageView;
+    .line 883
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Matrix;->setScale(FF)V
 
-    invoke-virtual {v2, v1}, Landroid/widget/ImageView;->setImageMatrix(Landroid/graphics/Matrix;)V
+    move-object/from16 v0, p1
+
+    iget-object v3, v0, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;->thumbnailViewImage:Landroid/widget/ImageView;
+
+    sget-object v4, Landroid/widget/ImageView$ScaleType;->MATRIX:Landroid/widget/ImageView$ScaleType;
+
+    invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
+
+    move-object/from16 v0, p1
+
+    iget-object v3, v0, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;->thumbnailViewImage:Landroid/widget/ImageView;
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v3, v0}, Landroid/widget/ImageView;->setImageMatrix(Landroid/graphics/Matrix;)V
 
     goto :goto_0
 .end method

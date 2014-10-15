@@ -71,4 +71,6 @@
     <dimen name="qs_tile_margin_above_icon">27.0dip</dimen>
     <dimen name="qs_tile_margin_below_icon">17.0dip</dimen>
     <dimen name="qs_tile_icon_size">32.0dip</dimen>
+	<dimen name="task_killer_button_layout_padding_top">0.0dip</dimen>
+    <dimen name="task_killer_button_layout_padding_end">16.0dip</dimen>
 </resources>

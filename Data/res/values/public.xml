@@ -142,6 +142,8 @@
   <public type="dimen" name="notification_panel_min_height" id="0x7f0c004f" />
   <public type="dimen" name="panel_float" id="0x7f0c0050" />
   <public type="dimen" name="status_bar_recents_width" id="0x7f0c0051" />
+  <public type="dimen" name="task_killer_button_layout_padding_top" id="0x7f0c0052" />
+  <public type="dimen" name="task_killer_button_layout_padding_end" id="0x7f0c0053" />
   <public type="drawable" name="alert_bar_background" id="0x7f020000" />
   <public type="drawable" name="alert_bar_background_normal" id="0x7f020001" />
   <public type="drawable" name="alert_bar_background_pressed" id="0x7f020002" />
@@ -621,6 +623,8 @@
   <public type="drawable" name="status_bar_lights_out_background" id="0x7f0201dc" />
   <public type="drawable" name="system_bar_background" id="0x7f0201dd" />
   <public type="drawable" name="notification_icon_area_smoke" id="0x7f0201de" />
+  <public type="drawable" name="sense_land" id="0x7f0201df" />
+  <public type="drawable" name="sense_port" id="0x7f0201e0" />
   <public type="id" name="horizontal" id="0x7f070000" />
   <public type="id" name="vertical" id="0x7f070001" />
   <public type="id" name="expandable_tag" id="0x7f070002" />
@@ -854,6 +858,10 @@
   <public type="id" name="notification_inspect_item" id="0x7f0700e6" />
   <public type="id" name="recent_remove_item" id="0x7f0700e7" />
   <public type="id" name="recent_inspect_item" id="0x7f0700e8" />
+  <public type="id" name="recents_transition_background" id="0x7f0700e9" />
+  <public type="id" name="recents_transition_placeholder_icon" id="0x7f0700ea" />
+  <public type="id" name="recents_clear" id="0x7f0700eb" />
+  <public type="id" name="recents_inject_closeall_button" id="0x7f0700ec" />
   <public type="integer" name="config_maxNotificationIcons" id="0x7f0b0000" />
   <public type="integer" name="config_show_search_delay" id="0x7f0b0001" />
   <public type="integer" name="config_vibration_duration" id="0x7f0b0002" />
@@ -1188,6 +1196,7 @@
   <public type="string" name="toast_message_maximum_number_of_tools_reached" id="0x7f0a00fc" />
   <public type="string" name="toast_message_not_allow_turn_on_hotspot" id="0x7f0a00fd" />
   <public type="string" name="usb_connected_txt" id="0x7f0a00fe" />
+  <public type="string" name="recent_apps_title" id="0x7f0a00ff" />
   <public type="style" name="RecentsStyle" id="0x7f0e0000" />
   <public type="style" name="Animation.RecentsActivity" id="0x7f0e0001" />
   <public type="style" name="TextAppearance.StatusBar.IntruderAlert" id="0x7f0e0002" />
